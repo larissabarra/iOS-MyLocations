@@ -48,14 +48,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Latidude)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="U5S-WW-LuN">
-                                <rect key="frame" x="225" y="110" width="79" height="21"/>
+                                <rect key="frame" x="154" y="110" width="150" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="(Longitude)" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ebA-NU-nZg">
-                                <rect key="frame" x="215" y="139" width="89" height="21"/>
+                                <rect key="frame" x="154" y="139" width="150" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -79,6 +79,7 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="Tag" image="first" id="acW-dT-cKf"/>
                     <connections>
+                        <outlet property="addressLabel" destination="X34-nG-Rca" id="a55-TM-RB8"/>
                         <outlet property="getButton" destination="OV3-ws-i9n" id="q8N-7M-j6K"/>
                         <outlet property="latitudeLabel" destination="U5S-WW-LuN" id="Hht-rq-LSF"/>
                         <outlet property="longitudeLabel" destination="ebA-NU-nZg" id="OaN-lf-UJi"/>

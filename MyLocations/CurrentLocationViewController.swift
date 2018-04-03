@@ -14,11 +14,13 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     @IBOutlet weak var messageLabel: UILabel!
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
     
     @IBOutlet weak var tagButton: UIButton!
     @IBOutlet weak var getButton: UIButton!
     
     let locationManager = CLLocationManager()
+    var location: CLLocation?
     
     @IBAction func getLocation(_ sender: Any) {
         let authStatus = CLLocationManager.authorizationStatus()
@@ -37,6 +39,15 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         locationManager.startUpdatingLocation()
     }
     
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        updateLabels()
+    }
+    
+    override func didReceiveMemoryWarning() {
+        super.didReceiveMemoryWarning()
+    }
+    
     func showLocationServicesDeniedAlert() {
         let alert = UIAlertController( title: "Location Services Disabled", message: "Please enable location services for this app in Settings.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -44,14 +55,19 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         present(alert, animated: true, completion: nil)
     }
     
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        // Do any additional setup after loading the view, typically from a nib.
-    }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    func updateLabels() {
+        if let location = location {
+            latitudeLabel.text = String(format: "%.8f", location.coordinate.latitude)
+            longitudeLabel.text = String(format: "%.8f", location.coordinate.longitude)
+            tagButton.isHidden = false
+            messageLabel.text = ""
+        } else {
+            latitudeLabel.text = ""
+            longitudeLabel.text = ""
+            addressLabel.text = ""
+            tagButton.isHidden = true
+            messageLabel.text = "Tap 'Get My Location' to Start"
+        }
     }
 
     // MARK: - CLLocationManagerDelegate
@@ -62,6 +78,9 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
         let newLocation = locations.last!
         print("didUpdateLocations \(newLocation)")
+        
+        location = newLocation
+        updateLabels()
     }
 }
 
