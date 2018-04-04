@@ -24,6 +24,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
     
     var location: CLLocation?
     var placemark: CLPlacemark?
+    var timer: Timer?
     
     var updatingLocation = false
     var performingReverseGeocoding = false
@@ -145,6 +146,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
             locationManager.startUpdatingLocation()
             updatingLocation = true
+            timer = Timer.scheduledTimer(timeInterval: 60, target: self, selector: #selector(didTimeOut), userInfo: nil, repeats: false)
         }
     }
     
@@ -152,6 +154,17 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         if updatingLocation {
             locationManager.stopUpdatingLocation()
             updatingLocation = false
+            if let timer = timer {
+                timer.invalidate()
+            }
+        }
+    }
+    
+    @objc func didTimeOut() {
+        if location == nil {
+            stopLocationManager()
+            lastLocationError = NSError(domain: "MyLocationsErrorDomain", code: 1, userInfo: nil)
+            updateLabels()
         }
     }
 
