@@ -9,12 +9,12 @@
 /* Begin PBXBuildFile section */
 		B201F9152073DE78006BD21A /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201F9142073DE78006BD21A /* AppDelegate.swift */; };
 		B201F9172073DE78006BD21A /* CurrentLocationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201F9162073DE78006BD21A /* CurrentLocationViewController.swift */; };
-		B201F9192073DE78006BD21A /* SecondViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201F9182073DE78006BD21A /* SecondViewController.swift */; };
 		B201F91C2073DE78006BD21A /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B201F91A2073DE78006BD21A /* Main.storyboard */; };
 		B201F91E2073DE78006BD21A /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B201F91D2073DE78006BD21A /* Assets.xcassets */; };
 		B201F9212073DE78006BD21A /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = B201F91F2073DE78006BD21A /* LaunchScreen.storyboard */; };
 		B201F92C2073DE78006BD21A /* MyLocationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201F92B2073DE78006BD21A /* MyLocationsTests.swift */; };
 		B201F9372073DE78006BD21A /* MyLocationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201F9362073DE78006BD21A /* MyLocationsUITests.swift */; };
+		B22ADDC7207665A20017393A /* LocationDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22ADDC6207665A20017393A /* LocationDetailsTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -38,7 +38,6 @@
 		B201F9112073DE78006BD21A /* MyLocations.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = MyLocations.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B201F9142073DE78006BD21A /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		B201F9162073DE78006BD21A /* CurrentLocationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CurrentLocationViewController.swift; sourceTree = "<group>"; };
-		B201F9182073DE78006BD21A /* SecondViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SecondViewController.swift; sourceTree = "<group>"; };
 		B201F91B2073DE78006BD21A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
 		B201F91D2073DE78006BD21A /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B201F9202073DE78006BD21A /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
@@ -49,6 +48,7 @@
 		B201F9322073DE78006BD21A /* MyLocationsUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = MyLocationsUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		B201F9362073DE78006BD21A /* MyLocationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationsUITests.swift; sourceTree = "<group>"; };
 		B201F9382073DE78006BD21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		B22ADDC6207665A20017393A /* LocationDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -101,11 +101,11 @@
 			children = (
 				B201F9142073DE78006BD21A /* AppDelegate.swift */,
 				B201F9162073DE78006BD21A /* CurrentLocationViewController.swift */,
-				B201F9182073DE78006BD21A /* SecondViewController.swift */,
 				B201F91A2073DE78006BD21A /* Main.storyboard */,
 				B201F91D2073DE78006BD21A /* Assets.xcassets */,
 				B201F91F2073DE78006BD21A /* LaunchScreen.storyboard */,
 				B201F9222073DE78006BD21A /* Info.plist */,
+				B22ADDC6207665A20017393A /* LocationDetailsTableViewController.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -262,8 +262,8 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B201F9192073DE78006BD21A /* SecondViewController.swift in Sources */,
 				B201F9152073DE78006BD21A /* AppDelegate.swift in Sources */,
+				B22ADDC7207665A20017393A /* LocationDetailsTableViewController.swift in Sources */,
 				B201F9172073DE78006BD21A /* CurrentLocationViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
