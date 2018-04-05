@@ -11,6 +11,10 @@ import UIKit
 class LocationDetailsTableViewController: UITableViewController {
 
     @IBOutlet weak var categoryLabel: UILabel!
+    @IBOutlet weak var addressLabel: UILabel!
+    @IBOutlet weak var dateLabel: UILabel!
+    @IBOutlet weak var latitudeLabel: UILabel!
+    @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
     
     @IBAction func done(_ sender: UIBarButtonItem) {

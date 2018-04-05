@@ -54,16 +54,24 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         updateLabels()
     }
     
+    // MARK:- view methods
     override func viewDidLoad() {
         super.viewDidLoad()
         locationManager.delegate = self
         updateLabels()
     }
     
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        navigationController?.isNavigationBarHidden = true
     }
     
+    override func viewWillDisappear(_ animated: Bool) {
+        super.viewWillDisappear(animated)
+        navigationController?.isNavigationBarHidden = false
+    }
+    
+    // MARK:- ui related
     func showLocationServicesDeniedAlert() {
         let alert = UIAlertController( title: "Location Services Disabled", message: "Please enable location services for this app in Settings.", preferredStyle: .alert)
         let okAction = UIAlertAction(title: "OK", style: .default, handler: nil)
@@ -141,6 +149,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         }
     }
     
+    // MARK:- location manager config
     func startLocationManager() {
         if CLLocationManager.locationServicesEnabled() {
             locationManager.desiredAccuracy = kCLLocationAccuracyNearestTenMeters
