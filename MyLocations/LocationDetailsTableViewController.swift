@@ -7,6 +7,14 @@
 //
 
 import UIKit
+import CoreLocation
+
+private let dateFormatter: DateFormatter = {
+    let formatter = DateFormatter()
+    formatter.dateStyle = .medium
+    formatter.timeStyle = .short
+    return formatter
+}()
 
 class LocationDetailsTableViewController: UITableViewController {
 
@@ -16,6 +24,9 @@ class LocationDetailsTableViewController: UITableViewController {
     @IBOutlet weak var latitudeLabel: UILabel!
     @IBOutlet weak var longitudeLabel: UILabel!
     @IBOutlet weak var descriptionTextView: UITextView!
+    
+    var coordinate = CLLocationCoordinate2D(latitude: 0, longitude: 0)
+    var placemark: CLPlacemark?
     
     @IBAction func done(_ sender: UIBarButtonItem) {
         leaveScreen()
@@ -31,28 +42,51 @@ class LocationDetailsTableViewController: UITableViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
-        // Uncomment the following line to preserve selection between presentations
-        // self.clearsSelectionOnViewWillAppear = false
-
-        // Uncomment the following line to display an Edit button in the navigation bar for this view controller.
-        // self.navigationItem.rightBarButtonItem = self.editButtonItem
+        descriptionTextView.text = ""
+        categoryLabel.text = ""
+        latitudeLabel.text = String(format: "%.8f", coordinate.latitude)
+        longitudeLabel.text = String(format: "%.8f", coordinate.longitude)
+        
+        if let placemark = placemark {
+            addressLabel.text = CurrentLocationViewController.string(from: placemark, displayCountry: true)
+        } else {
+            addressLabel.text = "No Address Found"
+        }
+        dateLabel.text = format(date: Date())
     }
-
-    override func didReceiveMemoryWarning() {
-        super.didReceiveMemoryWarning()
-        // Dispose of any resources that can be recreated.
+    
+    func format(date: Date) -> String {
+        return dateFormatter.string(from: date)
     }
 
     // MARK: - Table view data source
 
     override func numberOfSections(in tableView: UITableView) -> Int {
-        // #warning Incomplete implementation, return the number of sections
-        return 0
+        return 3
     }
 
     override func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        // #warning Incomplete implementation, return the number of rows
-        return 0
+        if section == 0 {
+            return 2
+        } else if section == 1 {
+            return 1
+        } else {
+            return 4
+        }
+    }
+    
+    // MARK: - Table View Delegates
+    override func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
+        if indexPath.section == 0 && indexPath.row == 0 {
+            return 88
+        } else if indexPath.section == 2 && indexPath.row == 2 {
+            addressLabel.frame.size = CGSize(width: view.bounds.size.width - 120, height: 10000)
+            addressLabel.sizeToFit()
+            addressLabel.frame.origin.x = view.bounds.size.width - addressLabel.frame.size.width - 16
+            return addressLabel.frame.size.height + 20
+        } else {
+            return 44
+        }
     }
 
     /*

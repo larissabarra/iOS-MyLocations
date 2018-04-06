@@ -71,6 +71,15 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         navigationController?.isNavigationBarHidden = false
     }
     
+    // MARK:- Navigation
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "tagLocation" {
+            let controller = segue.destination as! LocationDetailsTableViewController
+            controller.coordinate = location!.coordinate
+            controller.placemark = placemark
+        }
+    }
+    
     // MARK:- ui related
     func showLocationServicesDeniedAlert() {
         let alert = UIAlertController( title: "Location Services Disabled", message: "Please enable location services for this app in Settings.", preferredStyle: .alert)
@@ -87,7 +96,7 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
             messageLabel.text = ""
             
             if let placemark = placemark {
-                addressLabel.text = string(from: placemark)
+                addressLabel.text = CurrentLocationViewController.string(from: placemark)
             } else if performingReverseGeocoding {
                 addressLabel.text = "Searching for Address..."
             } else if lastGeocodingError != nil {
@@ -120,7 +129,8 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         configureGetButton()
     }
     
-    func string(from placemark: CLPlacemark) -> String {
+    //TODO move this to another class
+    class func string(from placemark: CLPlacemark, displayCountry: Bool = false) -> String {
         var line1 = ""
         if let s = placemark.subThoroughfare {
             line1 += s + " "
@@ -137,6 +147,9 @@ class CurrentLocationViewController: UIViewController, CLLocationManagerDelegate
         }
         if let s = placemark.postalCode {
             line2 += s
+        }
+        if displayCountry, let s = placemark.country {
+            line2 += ", " + s
         }
         return line1 + "\n" + line2
     }
