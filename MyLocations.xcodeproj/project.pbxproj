@@ -15,6 +15,7 @@
 		B201F92C2073DE78006BD21A /* MyLocationsTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201F92B2073DE78006BD21A /* MyLocationsTests.swift */; };
 		B201F9372073DE78006BD21A /* MyLocationsUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = B201F9362073DE78006BD21A /* MyLocationsUITests.swift */; };
 		B22ADDC7207665A20017393A /* LocationDetailsTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B22ADDC6207665A20017393A /* LocationDetailsTableViewController.swift */; };
+		B28CD1622077D5B60041CBBC /* CategoryPickerTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B28CD1612077D5B60041CBBC /* CategoryPickerTableViewController.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -49,6 +50,7 @@
 		B201F9362073DE78006BD21A /* MyLocationsUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyLocationsUITests.swift; sourceTree = "<group>"; };
 		B201F9382073DE78006BD21A /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		B22ADDC6207665A20017393A /* LocationDetailsTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationDetailsTableViewController.swift; sourceTree = "<group>"; };
+		B28CD1612077D5B60041CBBC /* CategoryPickerTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CategoryPickerTableViewController.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -106,6 +108,7 @@
 				B201F91F2073DE78006BD21A /* LaunchScreen.storyboard */,
 				B201F9222073DE78006BD21A /* Info.plist */,
 				B22ADDC6207665A20017393A /* LocationDetailsTableViewController.swift */,
+				B28CD1612077D5B60041CBBC /* CategoryPickerTableViewController.swift */,
 			);
 			path = MyLocations;
 			sourceTree = "<group>";
@@ -263,6 +266,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				B201F9152073DE78006BD21A /* AppDelegate.swift in Sources */,
+				B28CD1622077D5B60041CBBC /* CategoryPickerTableViewController.swift in Sources */,
 				B22ADDC7207665A20017393A /* LocationDetailsTableViewController.swift in Sources */,
 				B201F9172073DE78006BD21A /* CurrentLocationViewController.swift in Sources */,
 			);
